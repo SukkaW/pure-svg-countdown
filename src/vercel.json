@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/timer(.*)", "destination": "/api/timer" }
+  ]
+}

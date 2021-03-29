@@ -1,0 +1,32 @@
+{
+  "name": "pure-svg-countdown",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Pure animated SVG countdown",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SukkaW/pure-svg-countdown.git"
+  },
+  "keywords": [
+    "SVG",
+    "animation"
+  ],
+  "author": "Sukka <https://skk.moe>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SukkaW/pure-svg-countdown/issues"
+  },
+  "homepage": "https://github.com/SukkaW/pure-svg-countdown#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
+    "@vercel/node": "^1.9.1",
+    "eslint": "^7.23.0",
+    "eslint-config-sukka": "^1.1.2",
+    "typescript": "^3.9.3"
+  }
+}

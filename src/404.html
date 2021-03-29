@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Generate Your Timer</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9"></script>
+  <style>
+    body {
+      padding: 0 20px;
+    }
+
+    #form input[type="text"],
+    #form input[type="password"],
+    #form input[type="email"],
+    #form input[type="url"],
+    #form input[type="date"],
+    #form input[type="month"],
+    #form input[type="time"],
+    #form input[type="datetime"],
+    #form input[type="datetime-local"],
+    #form input[type="week"],
+    #form input[type="number"],
+    #form input[type="search"],
+    #form input[type="tel"],
+    #form input[type="color"],
+    #form select,
+    #form textarea {
+      padding: 0.5em 0.6em;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-shadow: inset 0 1px 3px #ddd;
+      border-radius: 4px;
+      vertical-align: middle;
+      box-sizing: border-box;
+      width: 300px;
+    }
+
+    #form input:not([type]) {
+      padding: 0.5em 0.6em;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-shadow: inset 0 1px 3px #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    #form input[type="color"] {
+      padding: 0.2em 0.5em;
+    }
+
+    #form input[type="text"]:focus,
+    #form input[type="password"]:focus,
+    #form input[type="email"]:focus,
+    #form input[type="url"]:focus,
+    #form input[type="date"]:focus,
+    #form input[type="month"]:focus,
+    #form input[type="time"]:focus,
+    #form input[type="datetime"]:focus,
+    #form input[type="datetime-local"]:focus,
+    #form input[type="week"]:focus,
+    #form input[type="number"]:focus,
+    #form input[type="search"]:focus,
+    #form input[type="tel"]:focus,
+    #form input[type="color"]:focus,
+    #form select:focus,
+    #form textarea:focus {
+      outline: 0;
+      border-color: #129FEA;
+    }
+
+    #form input:not([type]):focus {
+      outline: 0;
+      border-color: #129FEA;
+    }
+
+    #form input[type="file"]:focus,
+    #form input[type="radio"]:focus,
+    #form input[type="checkbox"]:focus {
+      outline: thin solid #129FEA;
+      outline: 1px auto #129FEA;
+    }
+
+    #form input[type="text"][disabled],
+    #form input[type="password"][disabled],
+    #form input[type="email"][disabled],
+    #form input[type="url"][disabled],
+    #form input[type="date"][disabled],
+    #form input[type="month"][disabled],
+    #form input[type="time"][disabled],
+    #form input[type="datetime"][disabled],
+    #form input[type="datetime-local"][disabled],
+    #form input[type="week"][disabled],
+    #form input[type="number"][disabled],
+    #form input[type="search"][disabled],
+    #form input[type="tel"][disabled],
+    #form input[type="color"][disabled],
+    #form select[disabled],
+    #form textarea[disabled] {
+      cursor: not-allowed;
+      background-color: #eaeded;
+      color: #cad2d3;
+    }
+
+    #form input:not([type])[disabled] {
+      cursor: not-allowed;
+      background-color: #eaeded;
+      color: #cad2d3;
+    }
+
+    #form input[readonly],
+    #form select[readonly],
+    #form textarea[readonly] {
+      background-color: #eee;
+      /* menu hover bg color */
+      color: #777;
+      /* menu text color */
+      border-color: #ccc;
+    }
+
+    #form input:focus:invalid,
+    #form textarea:focus:invalid,
+    #form select:focus:invalid {
+      color: #b94a48;
+      border-color: #e9322d;
+    }
+
+    #form input[type="file"]:focus:invalid:focus,
+    #form input[type="radio"]:focus:invalid:focus,
+    #form input[type="checkbox"]:focus:invalid:focus {
+      outline-color: #e9322d;
+    }
+
+    #form select {
+      /* Normalizes the height; padding is not sufficient. */
+      height: 2.25em;
+      border: 1px solid #ccc;
+      background-color: white;
+    }
+
+    #form select[multiple] {
+      height: auto;
+    }
+
+    #form label {
+      margin: 0.5em 0 0.2em;
+    }
+
+    #form input[type="text"],
+    #form input[type="password"],
+    #form input[type="email"],
+    #form input[type="url"],
+    #form input[type="date"],
+    #form input[type="month"],
+    #form input[type="time"],
+    #form input[type="datetime"],
+    #form input[type="datetime-local"],
+    #form input[type="week"],
+    #form input[type="number"],
+    #form input[type="search"],
+    #form input[type="tel"],
+    #form input[type="color"],
+    #form input[type="file"],
+    #form select,
+    #form label,
+    #form textarea {
+      display: block;
+      margin: 0.25em 0;
+    }
+
+    #form input:not([type]) {
+      display: block;
+      margin: 0.25em 0;
+    }
+
+    #form button {
+      display: inline-block;
+      line-height: normal;
+      white-space: nowrap;
+      vertical-align: middle;
+      text-align: center;
+      cursor: pointer;
+      -webkit-user-drag: none;
+      user-select: none;
+      box-sizing: border-box;
+      letter-spacing: normal;
+      word-spacing: normal;
+      vertical-align: top;
+      text-rendering: auto;
+      font-family: inherit;
+      font-size: 100%;
+      padding: 0.5em 1em;
+      border: none rgba(0, 0, 0, 0);
+      background-color: #E6E6E6;
+      text-decoration: none;
+      border-radius: 2px;
+      background-color: rgb(0, 120, 231);
+      color: #fff;
+    }
+
+    #form button:hover,
+    #form button:focus {
+      background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.10));
+    }
+
+    #form button:active {
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.20) inset;
+      border-color: #000;
+    }
+
+    pre {
+      padding: 8px;
+      background-color: #eaeded;
+      overflow: auto;
+    }
+
+    #img-src {
+      user-select: all;
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1>Countdown Timer Generator</h1>
+
+  <form id="form">
+    <label for="title">Title</label>
+    <input id="title" name="title" placeholder="Title" value="My Timer" type="text">
+    <label for="finish">Finish</label>
+    <input id="finish" name="finish" placeholder="Text to show when times up" type="text">
+    <br>
+    <label for="date">Date & Time</label>
+    <input name="date" type="text" id="datepicker">
+    <p><small>Times in <a href="https://en.wikipedia.org/wiki/List_of_UTC_time_offsets">UTC</a>. Dawn = UTC 0:00</small></p>
+    <button type="submit">Create link</button>
+  </form>
+  <br>
+  <div>
+    <pre><code id="img-src">Click "Generate link" to generate your count down timer</code></pre>
+  </div>
+  <br>
+  <img id="result">
+
+  <br>
+  <hr>
+  <p><a href="https://github.com/SukkaW/pure-svg-countdown" target="_blank" rel="nofollow noopener noreferrer">Source Code @ GitHub</a></p>
+
+  <script>
+    flatpickr(document.getElementById('datepicker'), {
+      enableTime: true,
+      dateFormat: 'Y-m-d H:i:00',
+      time_24hr: true
+    });
+
+    document.getElementById('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      try {
+        const formData = new FormData(document.getElementById('form'));
+
+        const title = formData.get('title');
+        const finish = formData.get('finish');
+        const inputDate = formData.get('date');
+
+        const date = new Date(new Date(inputDate).getTime() - new Date().getTimezoneOffset() * 60 * 1000);
+
+        const imgUrl = `${window.location.protocol}//${window.location.host}/timer?title=${encodeURIComponent(title)}${finish !== '' ? `&finish=${encodeURIComponent(finish)}` : ''}&time=${encodeURIComponent(date.toISOString())}#.png`;
+        document.getElementById('result').setAttribute('src', imgUrl);
+
+        document.getElementById('img-src').textContent = imgUrl;
+      } catch (e) {
+        document.getElementById('img-src').textContent = e.message;
+      }
+    });
+  </script>
+</body>
