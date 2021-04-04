@@ -236,6 +236,10 @@
     <input name="date" type="text" id="datepicker">
     <p><small>Times in <a href="https://en.wikipedia.org/wiki/List_of_UTC_time_offsets">UTC</a>. Dawn = UTC 0:00</small></p>
     <button type="submit">Create link</button>
+    <label for="bgColor">Background Color</label>
+    <input name="bgColor" type="text" id="bgColor" placeholder="#EDEDED">
+    <label for="borderColor">Border Color</label>
+    <input name="borderColor" type="text" id="borderColor" placeholder="#000">
   </form>
   <br>
   <div>
@@ -264,10 +268,12 @@
         const title = formData.get('title');
         const finish = formData.get('finish');
         const inputDate = formData.get('date');
+        const bgColor = formData.get('bgColor');
+        const borderColor = formData.get('borderColor');
 
         const date = new Date(new Date(inputDate).getTime() - new Date().getTimezoneOffset() * 60 * 1000);
 
-        const imgUrl = `${window.location.protocol}//${window.location.host}/timer?title=${encodeURIComponent(title)}${finish !== '' ? `&finish=${encodeURIComponent(finish)}` : ''}&time=${encodeURIComponent(date.toISOString())}#.png`;
+        const imgUrl = `${window.location.protocol}//${window.location.host}/timer?title=${encodeURIComponent(title)}${finish !== '' ? `&finish=${encodeURIComponent(finish)}` : ''}&time=${encodeURIComponent(date.toISOString())}${bgColor !== '' ? `&bgColor=${encodeURIComponent(bgColor)}` : ''}${borderColor !== '' ? `&borderColor=${encodeURIComponent(borderColor)}` : ''}#.png`;
         document.getElementById('result').setAttribute('src', imgUrl);
 
         document.getElementById('img-src').textContent = imgUrl;
