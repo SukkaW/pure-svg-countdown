@@ -1,5 +1,8 @@
 {
   "rewrites": [
     { "source": "/timer(.*)", "destination": "/api/timer" }
-  ]
+  ],
+  "github": {
+    "silent": true
+  }
 }
