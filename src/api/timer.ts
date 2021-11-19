@@ -2,10 +2,10 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 import { finishAppearStyle, mainStyle, timerDisappearStyle, svgBegin, svgContainerBegin, svgContainerEnd, svgEnd, svgForeignObjectBegin, svgForeignObjectEnd } from './contants';
 
 export default async (request: VercelRequest, response: VercelResponse): Promise<void> => {
-  const { time, title, finish: finishText, bgColor, borderColor } = request.query;
+  const { time, title, finish: finishText, bgColor, borderColor, fontColor } = request.query;
 
   response.setHeader('content-type', 'image/svg+xml');
-  response.status(200).send(buildSvg(time, title, finishText, bgColor, borderColor));
+  response.status(200).send(buildSvg(time, title, finishText, bgColor, borderColor, fontColor));
 };
 
 const padNumber = (num: number): string => String(num).padStart(2, '0');
@@ -15,12 +15,14 @@ function buildSvg(
   title: string | string[] = 'Countdown',
   finish: string | string[] = 'The auction has expired',
   bgColor: string | string[] = '#EDEDED',
-  borderColor: string | string[] = '#000'
+  borderColor: string | string[] = '#000',
+  fontColor: string | string[] = '#000'
 ): string {
   if (Array.isArray(time)) time = time.join('');
   if (Array.isArray(title)) title = title.join(' ');
   if (Array.isArray(bgColor)) bgColor = bgColor.join('');
   if (Array.isArray(borderColor)) borderColor = borderColor.join('');
+  if (Array.isArray(fontColor)) fontColor = fontColor.join('');
 
   let style = '';
   let timerDiv = '';
@@ -94,6 +96,7 @@ function buildSvg(
   result += 'border-color: #000;';
   result += `background: ${bgColor};`;
   result += `border-color: ${borderColor};`;
+  result += `color: ${fontColor};`;
   result += '}';
 
   result += '.divider {';
