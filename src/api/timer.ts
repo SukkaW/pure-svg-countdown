@@ -1,4 +1,4 @@
-import { VercelRequest, VercelResponse } from '@vercel/node';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { finishAppearStyle, mainStyle, timerDisappearStyle, svgBegin, svgContainerBegin, svgContainerEnd, svgEnd, svgForeignObjectBegin, svgForeignObjectEnd } from './contants';
 
 export default async (request: VercelRequest, response: VercelResponse): Promise<void> => {
@@ -77,7 +77,7 @@ function buildSvg(
 
     timerDiv += `<div class="end">End: ${formatTime(endDate)}</div>`;
   } catch (e) {
-    // eslint-disable-next-line no-console
+    // eslint-disable-next-line no-console -- log
     console.error(e);
     timerDiv = '<div class="timer"><span class="error">There is something goes wrong here!</span></div>';
   }
