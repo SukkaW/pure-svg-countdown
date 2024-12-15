@@ -30,7 +30,7 @@ function buildSvg(
   try {
     const endDate = new Date(time);
     const end = endDate.getTime();
-    const now = new Date().getTime();
+    const now = Date.now();
 
     let seconds = (end - now) / 1000;
     const allSecondsLeft = Math.round(seconds);

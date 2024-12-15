@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "lib": ["es2020", "dom"],
     "target": "es2020",
+    "lib": ["es2020", "dom"],
     "module": "commonjs",
+    "moduleResolution": "node",
+    "typeRoots": ["src/@types", "node_modules/@types"],
     "declaration": false,
     "outDir": "dist",
-    "strict": true,
-    "moduleResolution": "node",
     "esModuleInterop": true,
-    "typeRoots": ["src/@types", "node_modules/@types"]
+    "strict": true
   },
   "include": ["src"],
   "exclude": ["dist", "test", "node_modules/**/*"]

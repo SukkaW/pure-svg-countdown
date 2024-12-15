@@ -3,13 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "description": "Pure animated SVG countdown",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "homepage": "https://github.com/SukkaW/pure-svg-countdown#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SukkaW/pure-svg-countdown.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SukkaW/pure-svg-countdown/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --format=sukka ."
   },
   "keywords": [
     "SVG",
@@ -17,21 +21,16 @@
   ],
   "author": "Sukka <https://skk.moe>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/SukkaW/pure-svg-countdown/issues"
-  },
-  "homepage": "https://github.com/SukkaW/pure-svg-countdown#readme",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.4.1",
-    "@typescript-eslint/parser": "^6.4.1",
-    "@vercel/node": "^3.0.3",
-    "eslint": "^8.48.0",
-    "eslint-config-sukka": "^3.0.4",
-    "eslint-plugin-import": "npm:eslint-plugin-i@^2.28.0-2",
-    "typescript": "^5.2.2"
+    "@eslint-sukka/node": "^6.12.0",
+    "@vercel/node": "^5.0.0",
+    "eslint": "^9.17.0",
+    "eslint-config-sukka": "^6.12.0",
+    "eslint-formatter-sukka": "^6.12.0",
+    "typescript": "^5.7.2"
   },
+  "packageManager": "pnpm@9.15.0",
   "overrides": {
     "has": "npm:@nolyfill/has@latest"
-  },
-  "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c"
+  }
 }
