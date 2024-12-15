@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { finishAppearStyle, mainStyle, timerDisappearStyle, svgBegin, svgContainerBegin, svgContainerEnd, svgEnd, svgForeignObjectBegin, svgForeignObjectEnd } from './contants';
+import { finishAppearStyle, mainStyle, timerDisappearStyle, svgBegin, svgContainerBegin, svgContainerEnd, svgEnd, svgForeignObjectBegin, svgForeignObjectEnd } from './constants';
 
-export default async (request: VercelRequest, response: VercelResponse): Promise<void> => {
+export default (request: VercelRequest, response: VercelResponse): void => {
   const { time, title, finish: finishText, bgColor, borderColor, fontColor } = request.query;
 
   response.setHeader('content-type', 'image/svg+xml');
@@ -20,6 +20,7 @@ function buildSvg(
 ): string {
   if (Array.isArray(time)) time = time.join('');
   if (Array.isArray(title)) title = title.join(' ');
+  if (Array.isArray(finish)) finish = finish.join('');
   if (Array.isArray(bgColor)) bgColor = bgColor.join('');
   if (Array.isArray(borderColor)) borderColor = borderColor.join('');
   if (Array.isArray(fontColor)) fontColor = fontColor.join('');
