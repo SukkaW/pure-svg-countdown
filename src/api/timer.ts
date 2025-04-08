@@ -5,6 +5,7 @@ export default (request: VercelRequest, response: VercelResponse): void => {
   const { time, title, finish: finishText, bgColor, borderColor, fontColor } = request.query;
 
   response.setHeader('content-type', 'image/svg+xml');
+  response.setHeader('x-robots-tag', 'noindex');
   response.status(200).send(buildSvg(time, title, finishText, bgColor, borderColor, fontColor));
 };
 
