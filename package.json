@@ -22,14 +22,17 @@
   "author": "Sukka <https://skk.moe>",
   "license": "MIT",
   "devDependencies": {
-    "@eslint-sukka/node": "^6.12.0",
-    "@vercel/node": "^5.0.0",
-    "eslint": "^9.17.0",
-    "eslint-config-sukka": "^6.12.0",
-    "eslint-formatter-sukka": "^6.12.0",
-    "typescript": "^5.7.2"
+    "@eslint-sukka/node": "^6.18.1",
+    "@vercel/node": "^5.1.14",
+    "eslint": "^9.24.0",
+    "eslint-config-sukka": "^6.18.1",
+    "eslint-formatter-sukka": "^6.18.1",
+    "typescript": "^5.8.3"
   },
-  "packageManager": "pnpm@9.15.0",
+  "packageManager": "pnpm@10.8.0",
+  "pnpm": {
+    "neverBuiltDependencies": []
+  },
   "overrides": {
     "has": "npm:@nolyfill/has@latest"
   }
