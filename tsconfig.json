@@ -4,7 +4,6 @@
     "lib": ["es2022", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
-    "typeRoots": ["src/@types", "node_modules/@types"],
     "declaration": false,
     "esModuleInterop": true,
     "strict": true

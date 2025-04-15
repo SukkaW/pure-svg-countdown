@@ -13,6 +13,7 @@
   },
   "main": "index.js",
   "scripts": {
+    "build": "rollup -c --bundleConfigAsCjs --configPlugin swc3",
     "lint": "eslint --format=sukka ."
   },
   "keywords": [

@@ -1,31 +1,15 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { finishAppearStyle, mainStyle, timerDisappearStyle, svgBegin, svgContainerBegin, svgContainerEnd, svgEnd, svgForeignObjectBegin, svgForeignObjectEnd } from './constants';
-
-export default (request: VercelRequest, response: VercelResponse): void => {
-  const { time, title, finish: finishText, bgColor, borderColor, fontColor } = request.query;
-
-  response.setHeader('content-type', 'image/svg+xml');
-  response.setHeader('x-robots-tag', 'noindex');
-  response.status(200).send(buildSvg(time, title, finishText, bgColor, borderColor, fontColor));
-};
 
 const padNumber = (num: number): string => String(num).padStart(2, '0');
 
-function buildSvg(
-  time: string | string[],
-  title: string | string[] = 'Countdown',
-  finish: string | string[] = 'The auction has expired',
-  bgColor: string | string[] = '#EDEDED',
-  borderColor: string | string[] = '#000',
-  fontColor: string | string[] = '#000'
+export function buildSvg(
+  time: string,
+  title = 'Countdown',
+  finish = 'The countdown has expired',
+  bgColor = '#EDEDED',
+  borderColor = '#000',
+  fontColor = '#000'
 ): string {
-  if (Array.isArray(time)) time = time.join('');
-  if (Array.isArray(title)) title = title.join(' ');
-  if (Array.isArray(finish)) finish = finish.join('');
-  if (Array.isArray(bgColor)) bgColor = bgColor.join('');
-  if (Array.isArray(borderColor)) borderColor = borderColor.join('');
-  if (Array.isArray(fontColor)) fontColor = fontColor.join('');
-
   let style = '';
   let timerDiv = '';
 
