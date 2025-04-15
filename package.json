@@ -23,7 +23,7 @@
   "author": "Sukka <https://skk.moe>",
   "license": "MIT",
   "dependencies": {
-    "hono": "^4.7.6"
+    "itty-router": "^5.0.18"
   },
   "devDependencies": {
     "@eslint-sukka/node": "^6.18.2",

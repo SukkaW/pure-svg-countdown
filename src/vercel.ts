@@ -1,7 +1,3 @@
-import { Hono } from 'hono';
-import { createApp } from './main';
-import { handle } from 'hono/vercel';
+import { app } from './main';
 
-const app = createApp(new Hono());
-
-export const GET = handle(app);
+export const GET = app.fetch;
