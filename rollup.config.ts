@@ -12,7 +12,7 @@ export default defineConfig([
     plugins: [
       nodeResolve(),
       swc({
-        minify: false
+        minify: true
       })
     ]
   },
@@ -25,7 +25,7 @@ export default defineConfig([
     plugins: [
       nodeResolve(),
       swc({
-        minify: false
+        minify: true
       })
     ]
   }
