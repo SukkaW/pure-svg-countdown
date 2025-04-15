@@ -1,4 +1,4 @@
-import { IttyRouter, error } from 'itty-router';
+import { IttyRouter } from 'itty-router';
 import { buildSvg } from './lib';
 
 export const app = IttyRouter();
@@ -13,9 +13,12 @@ function joinString(str: string | string[]) {
 app.get('/timer', ({ query }) => {
   const time = query.time;
   if (!time) {
-    return error(
-      400,
-      'The "time" parameter is required in the query string.'
+    return new Response(
+      'The "time" parameter is required in the query string.',
+      {
+        status: 400,
+        headers: { 'X-Robots-Tag': 'noindex' }
+      }
     );
   }
 
