@@ -32,5 +32,7 @@ export function createApp(app: Hono) {
     return c.text(svg);
   });
 
+  app.get('*', c => fetch(c.req.url, c.req.raw));
+
   return app;
 }
