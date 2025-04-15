@@ -29,10 +29,10 @@ export function createApp(app: Hono) {
     c.header('Content-Type', 'image/svg+xml');
     c.status(200);
 
-    return c.text(svg);
+    return c.body(svg);
   });
 
-  app.get('*', c => fetch(c.req.url, c.req.raw));
+  app.get('/*', c => fetch(c.req.url, c.req.raw));
 
   return app;
 }
