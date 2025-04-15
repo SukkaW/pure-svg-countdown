@@ -13,6 +13,7 @@
   },
   "main": "index.js",
   "scripts": {
+    "build": "rollup -c --bundleConfigAsCjs --configPlugin swc3",
     "lint": "eslint --format=sukka ."
   },
   "keywords": [
@@ -21,15 +22,21 @@
   ],
   "author": "Sukka <https://skk.moe>",
   "license": "MIT",
+  "dependencies": {
+    "hono": "^4.7.6"
+  },
   "devDependencies": {
-    "@eslint-sukka/node": "^6.18.1",
+    "@eslint-sukka/node": "^6.18.2",
+    "@rollup/plugin-node-resolve": "^16.0.1",
     "@vercel/node": "^5.1.14",
     "eslint": "^9.24.0",
-    "eslint-config-sukka": "^6.18.1",
-    "eslint-formatter-sukka": "^6.18.1",
+    "eslint-config-sukka": "^6.18.2",
+    "eslint-formatter-sukka": "^6.18.2",
+    "rollup": "^4.40.0",
+    "rollup-plugin-swc3": "^0.12.1",
     "typescript": "^5.8.3"
   },
-  "packageManager": "pnpm@10.8.0",
+  "packageManager": "pnpm@10.8.1",
   "pnpm": {
     "neverBuiltDependencies": []
   },
