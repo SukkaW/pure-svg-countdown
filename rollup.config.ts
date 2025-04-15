@@ -1,5 +1,6 @@
 import { defineConfig } from 'rollup';
 import { swc } from 'rollup-plugin-swc3';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 export default defineConfig([
   {
@@ -8,7 +9,12 @@ export default defineConfig([
       file: 'dist/varcel.js',
       format: 'esm'
     },
-    plugins: [swc()]
+    plugins: [
+      nodeResolve(),
+      swc({
+        minify: true
+      })
+    ]
   },
   {
     input: 'src/cloudflare.ts',
@@ -16,6 +22,11 @@ export default defineConfig([
       file: 'dist/cloudflare.js',
       format: 'esm'
     },
-    plugins: [swc()]
+    plugins: [
+      nodeResolve(),
+      swc({
+        minify: true
+      })
+    ]
   }
 ]);

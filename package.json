@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@eslint-sukka/node": "^6.18.2",
+    "@rollup/plugin-node-resolve": "^16.0.1",
     "@vercel/node": "^5.1.14",
     "eslint": "^9.24.0",
     "eslint-config-sukka": "^6.18.2",
