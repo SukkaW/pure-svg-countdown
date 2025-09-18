@@ -23,24 +23,25 @@
   "author": "Sukka <https://skk.moe>",
   "license": "MIT",
   "dependencies": {
-    "itty-router": "^5.0.18"
+    "itty-router": "^5.0.22"
   },
   "devDependencies": {
-    "@eslint-sukka/node": "^6.18.2",
+    "@eslint-sukka/node": "^6.23.1",
     "@rollup/plugin-node-resolve": "^16.0.1",
-    "@vercel/node": "^5.1.14",
-    "eslint": "^9.24.0",
-    "eslint-config-sukka": "^6.18.2",
-    "eslint-formatter-sukka": "^6.18.2",
-    "rollup": "^4.40.0",
+    "@vercel/node": "^5.3.22",
+    "eslint": "^9.35.0",
+    "eslint-config-sukka": "^6.23.1",
+    "eslint-formatter-sukka": "^6.23.1",
+    "rollup": "^4.50.2",
     "rollup-plugin-swc3": "^0.12.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   },
-  "packageManager": "pnpm@10.8.1",
+  "packageManager": "pnpm@10.17.0",
   "pnpm": {
-    "neverBuiltDependencies": []
-  },
-  "overrides": {
-    "has": "npm:@nolyfill/has@latest"
+    "neverBuiltDependencies": [],
+    "overrides": {
+      "has": "npm:@nolyfill/has@latest",
+      "eslint>chalk": "npm:picocolors@^1.1.1"
+    }
   }
 }
