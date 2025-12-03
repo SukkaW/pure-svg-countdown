@@ -1,3 +1,4 @@
+import { tagged as css, tagged as html } from 'foxts/tagged';
 import { finishAppearStyle, mainStyle, timerDisappearStyle, svgBegin, svgContainerBegin, svgContainerEnd, svgEnd, svgForeignObjectBegin, svgForeignObjectEnd } from './constants';
 
 const padNumber = (num: number): string => String(num).padStart(2, '0');
@@ -35,12 +36,12 @@ export function buildSvg(
       const secondsLeft = Math.round(seconds);
       const minutesDelay = secondsLeft;
 
-      style += `.seconds::after { content: "${secondsLeft}"; animation-name: countdown-seconds; animation-duration: 60s; }`;
-      style += `.minutes::after { content: "${minutesLeft}"; animation-name: countdown-minutes; animation-duration: 3600s; animation-delay: ${minutesDelay}s }`;
-      style += `.hours::after { content: "${hoursLeft}"; animation-name: countdown-hours; animation-duration: 86400s; animation-delay: ${hoursDelay}s }`;
-      style += `.days::after { content: "${daysLeft}"; animation-name: countdown-days; animation-duration: ${daysLeft * 86400}s; animation-delay: ${daysDelay}s }`;
-      style += `.timer { opacity: 100%; animation-name: timer-disappear; animation-duration: 1s; animation-timing-function:step-end;animation-direction: normal; animation-play-state: running; animation-fill-mode: forwards; animation-delay: ${allSecondsLeft - 1}s }`;
-      style += `.finish { opacity: 0%; animation-name: finish-appear; animation-duration: 1s; animation-timing-function:step-end; animation-direction: normal; animation-play-state: running; animation-fill-mode: forwards; animation-delay: ${allSecondsLeft - 1}s }`;
+      style += css`.seconds::after { content: "${secondsLeft}"; animation-name: countdown-seconds; animation-duration: 60s; }`;
+      style += css`.minutes::after { content: "${minutesLeft}"; animation-name: countdown-minutes; animation-duration: 3600s; animation-delay: ${minutesDelay}s }`;
+      style += css`.hours::after { content: "${hoursLeft}"; animation-name: countdown-hours; animation-duration: 86400s; animation-delay: ${hoursDelay}s }`;
+      style += css`.days::after { content: "${daysLeft}"; animation-name: countdown-days; animation-duration: ${daysLeft * 86400}s; animation-delay: ${daysDelay}s }`;
+      style += css`.timer { opacity: 100%; animation-name: timer-disappear; animation-duration: 1s; animation-timing-function:step-end;animation-direction: normal; animation-play-state: running; animation-fill-mode: forwards; animation-delay: ${allSecondsLeft - 1}s }`;
+      style += css`.finish { opacity: 0%; animation-name: finish-appear; animation-duration: 1s; animation-timing-function:step-end; animation-direction: normal; animation-play-state: running; animation-fill-mode: forwards; animation-delay: ${allSecondsLeft - 1}s }`;
 
       style += createKeyframes(secondsLeft - 1, 60, 'seconds');
       style += createKeyframes(minutesLeft - 1, 60, 'minutes');
@@ -48,24 +49,24 @@ export function buildSvg(
       style += createKeyframes(daysLeft - 1, daysLeft, 'days');
       style += timerDisappearStyle + finishAppearStyle;
 
-      timerDiv += '<div class="contain">';
-      timerDiv += '<div class="timer">';
-      timerDiv += '<span class="days"></span>d ';
-      timerDiv += '<span class="hours"></span>h ';
-      timerDiv += '<span class="minutes"></span>m ';
-      timerDiv += '<span class="seconds"></span>s';
-      timerDiv += '</div>';
-      timerDiv += `<div class="finish"><span class="error">${finish}</span></div>`;
-      timerDiv += '</div>';
+      timerDiv += html`<div class="contain">`;
+      timerDiv += html`<div class="timer">`;
+      timerDiv += html`<span class="days"></span>d `;
+      timerDiv += html`<span class="hours"></span>h `;
+      timerDiv += html`<span class="minutes"></span>m `;
+      timerDiv += html`<span class="seconds"></span>s`;
+      timerDiv += html`</div>`;
+      timerDiv += html`<div class="finish"><span class="error">${finish}</span></div>`;
+      timerDiv += html`</div>`;
     } else {
-      timerDiv = `<div class="contain"><div class="timer"><span class="error">${finish}</span></div></div>`;
+      timerDiv = html`<div class="contain"><div class="timer"><span class="error">${finish}</span></div></div>`;
     }
 
-    timerDiv += `<div class="end">End: ${formatTime(endDate)}</div>`;
+    timerDiv += html`<div class="end">End: ${formatTime(endDate)}</div>`;
   } catch (e) {
     // eslint-disable-next-line no-console -- log
     console.error(e);
-    timerDiv = '<div class="timer"><span class="error">There is something goes wrong here!</span></div>';
+    timerDiv = html`<div class="timer"><span class="error">There is something goes wrong here!</span></div>`;
   }
 
   let result = '';
