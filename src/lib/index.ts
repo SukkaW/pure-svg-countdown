@@ -116,7 +116,7 @@ function createKeyframes(start: number, steps: number, name: string): string {
 
   for (let i = 0; i < steps; i++) {
     result += `${((100 / steps) * i).toFixed(2)}%{`;
-    result += `content: "${start - i >= 0 ? start - i : steps + start - i}"`;
+    result += `content: "${start >= i ? start - i : steps + start - i}"`;
     result += '}';
   }
 
